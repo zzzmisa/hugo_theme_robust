@@ -1,7 +1,7 @@
 <section class="sidebar">
   <header>{{ .key | upper }}</header>
   <ul class="terms">
-    {{ range $key, $value := first 10 .value.ByCount }}
+    {{ range $key, $value := first 50 .value.ByCount }}
     <li><a href="{{ $.baseurl}}{{ $.key }}/{{ .Name | urlize }}">{{ .Name }} <span class="count">({{ $value.Count }})</span></a></li>
     {{ end }}
   </ul>
