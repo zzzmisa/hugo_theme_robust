@@ -61,7 +61,10 @@
       }
       </script>
     </amp-analytics>
-    <amp-auto-ads type="adsense" data-ad-client="ca-pub-1954319019035310"></amp-auto-ads>
+    {{ end }}
+    
+    {{ if and .Site.Params.googleadsense (ne (getenv "HUGO_ENV") "DEV") }}
+    <amp-auto-ads type="adsense" data-ad-client="{{ . }}"></amp-auto-ads>
     {{ end }}
 
     <header class="l-header">
