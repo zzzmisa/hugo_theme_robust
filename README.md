@@ -1,3 +1,20 @@
+# Hugo Theme Robust Modified by zzzmisa
+## オリジナルと違う点
+ - 機能追加
+   - YouTubeとiframe用のショートコードを追加
+   - authorセクションでメールアイコンを表示できるよう機能追加
+   - Google Adsenseの自動広告を表示できるよう機能追加
+   - フッターに任意のコンテンツ（例えば Notice | Privacy Policy）を追加できるよう機能追加
+   - テーマの著作権表示に`modified by zzzmisa`を追加  
+ - 修正
+   - タグの表示件数を10件から50件に変更
+   - 記事の行間を`line-height: 1.5rem`から`line-height: 2rem`に変更
+   - 階層リストに入っていたマージンを削除し、`line-height: 2rem`で統一  
+
+↓↓ここからオリジナルのREADME↓↓
+
+-----
+
 This theme is maintained by [Ress](https://github.com/ress997).
 
 # What is this.
