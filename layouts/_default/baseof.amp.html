@@ -64,7 +64,7 @@
     {{ end }}
     
     {{ if and .Site.Params.googleadsense (ne (getenv "HUGO_ENV") "DEV") }}
-    <amp-auto-ads type="adsense" data-ad-client="{{ . }}"></amp-auto-ads>
+    <amp-auto-ads type="adsense" data-ad-client="{{ .Site.Params.googleadsense }}"></amp-auto-ads>
     {{ end }}
 
     <header class="l-header">

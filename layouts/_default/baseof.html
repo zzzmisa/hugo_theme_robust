@@ -56,7 +56,7 @@
 </script>
 {{ end }}
 {{ if and .Site.Params.googleadsense (ne (getenv "HUGO_ENV") "DEV") }}
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ . }}"
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ .Site.Params.googleadsense }}"
   crossorigin="anonymous"></script>
 {{ end }}
   </head>
