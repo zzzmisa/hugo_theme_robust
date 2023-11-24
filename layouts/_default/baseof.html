@@ -44,23 +44,36 @@
 {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
 {{ partial "custom.css" . | safeCSS }}
     </style>
-{{ if and .Site.GoogleAnalytics (ne (getenv "HUGO_ENV") "DEV") }}
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+{{ if and .Site.Params.googletagmanager }}
+<!-- Google Tag Manager -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', '{{ .Site.GoogleAnalytics }}');
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "{{ .Site.Params.googletagmanager }}");
 </script>
-{{ end }}
-{{ if and .Site.Params.googleadsense (ne (getenv "HUGO_ENV") "DEV") }}
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ .Site.Params.googleadsense }}"
-  crossorigin="anonymous"></script>
+<!-- End Google Tag Manager -->
 {{ end }}
   </head>
   <body>
+    {{ if and .Site.Params.googletagmanager }}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.googletagmanager }}"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    {{ end }}
     <header class="l-header">
         <h1 class="logo">
           <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>

@@ -3,10 +3,10 @@
  - 機能追加
    - YouTubeとiframe用のショートコードを追加
    - authorセクションでメールアイコン、ホームページアイコンを表示できるよう機能追加
-   - Google Adsenseの自動広告を表示できるよう機能追加
    - フッターに任意のコンテンツ（例えば Notice | Privacy Policy）を追加できるよう機能追加
    - テーマの著作権表示に`modified by zzzmisa`を追加  
  - 機能修正
+   - Google Analyticsのサポートを廃止し、代わりにGoogle Tag Managerをサポート
    - Font Awesomeのバージョンをv6.4.2にアップデート
    - タグの表示件数を10件から50件に変更
    - 記事の行間を`line-height: 1.5rem`から`line-height: 2rem`に変更
