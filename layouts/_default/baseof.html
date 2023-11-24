@@ -16,7 +16,7 @@
     {{ if .Site.Params.EnableHighlight | default false }}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/default.min.css">
     {{ end }}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" crossorigin="anonymous">
     <style>
 {{ with resources.Get "styles.scss" | toCSS }}
   {{ replace .Content `@charset "UTF-8";` "" | safeCSS }}
