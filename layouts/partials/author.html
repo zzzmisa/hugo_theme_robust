@@ -11,6 +11,7 @@
       {{ with .twitter }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>{{ end }}
       {{ with .github }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>{{ end }}
       {{ with .mail }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>{{ end }}
+      {{ with .homepage }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank"><i class="fa-solid fa-house" aria-hidden="true"></i></a></li>{{ end }}
     </ul>
     <div class="author-description">{{ .description | safeHTML }}</div>
   </div>
