@@ -1,4 +1,7 @@
-# Hugo Theme Robust Modified by zzzmisa
+# Hugo Theme Misa's Robust
+
+Misa's Robust was modified by zzzmisa based on the original [Robust](https://github.com/dim0627/hugo_theme_robust) created by [Daisuke Tsuji](http://yet.unresolved.xyz/) and maintained by [Ress](https://github.com/ress997).
+
 ## オリジナルと違う点
  - 機能追加
    - YouTubeとiframe用のショートコードを追加
