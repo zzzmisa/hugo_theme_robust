@@ -7,8 +7,8 @@ Misa's Robust was modified by zzzmisa based on the original [Robust](https://git
    - YouTubeとiframe用のショートコードを追加
    - authorセクションでメールアイコン、ホームページアイコンを表示できるよう機能追加
    - フッターに任意のコンテンツ（例えば Notice | Privacy Policy）を追加できるよう機能追加
-   - テーマの著作権表示に`modified by zzzmisa`を追加  
  - 機能修正
+   - TwitterアイコンをXに変更
    - Google Analyticsのサポートを廃止し、代わりにGoogle Tag Managerをサポート
    - Font Awesomeのバージョンをv6.4.2にアップデート
    - タグの表示件数を10件から50件に変更
