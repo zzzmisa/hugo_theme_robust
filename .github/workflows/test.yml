@@ -1,3 +1,4 @@
+
 name: Build Test
 on: [push, pull_request]
 jobs:
@@ -5,24 +6,24 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Download hugoBasicExample
-        uses: actions/checkout@v2
+      - name: Checkout theme
+        uses: actions/checkout@v4
         with:
-          repository: gohugoio/hugoBasicExample
-          path: ~/tmp
+          path: themes/robust
 
-      - uses: actions/checkout@v2
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
         with:
-          path: ~/tmp/themes/robust
+          hugo-version: '0.120.4'
+          extended: true
 
-      - name: Setup hugo
-        working-directory: ~/tmp
+      - name: Create new Hugo site
+        run: hugo new site mysite
+
+      - name: Copy theme to site
         run: |
-          VERSION=$(curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
-          wget "https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz" -O hugo.tar.gz
-          tar xzf hugo.tar.gz hugo
-          rm -rf hugo.tar.gz
-
+          cp -r themes/robust mysite/themes/robust
       - name: Build
-        working-directory: ~/tmp
-        run: ./hugo --theme robust --minify
+        run: |
+          cd mysite
+          hugo --theme robust --minify
