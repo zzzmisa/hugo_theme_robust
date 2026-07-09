@@ -3,7 +3,7 @@
   "@type" "WebSite"
   "name" .Site.Title
   "url" .Site.Home.Permalink
-  "inLanguage" (.Site.Language.LanguageCode | default .Site.Language.Lang)
+  "inLanguage" (.Site.Language.Locale | default .Site.Language.Lang)
 -}}
 {{- with .Site.Params.description }}{{ $schema = merge $schema (dict "description" .) }}{{ end -}}
 <script type="application/ld+json">{{ $schema | jsonify (dict "indent" "  ") | safeJS }}</script>

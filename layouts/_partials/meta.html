@@ -15,7 +15,7 @@
 
 {{ if .IsTranslated }}
 {{ range .AllTranslations }}
-<link rel="alternate" hreflang="{{ .Language.LanguageCode | default .Language.Lang }}" href="{{ .Permalink }}">
+<link rel="alternate" hreflang="{{ .Language.Locale | default .Language.Lang }}" href="{{ .Permalink }}">
 {{ end }}
 {{ end }}
 

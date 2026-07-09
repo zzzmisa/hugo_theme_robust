@@ -1,5 +1,5 @@
 {{- $desc := .Description | default (.Summary | plainify | htmlUnescape | chomp | truncate 160) -}}
-{{- $lang := .Site.Language.LanguageCode | default .Site.Language.Lang -}}
+{{- $lang := .Site.Language.Locale | default .Site.Language.Lang -}}
 {{- $schema := dict
   "@context" "https://schema.org"
   "@type" "BlogPosting"
