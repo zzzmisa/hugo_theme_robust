@@ -39,7 +39,6 @@ This is the grid based theme for Hugo.
 
 # Features
 
-* [Accelerated Mobile Pages Project](https://www.ampproject.org/) a.k.a AMP supported
 * Responsive design
 * Google Analytics
 * Thumbnail
@@ -87,9 +86,6 @@ description = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p><p>
 facebook = "https://www.facebook.com/daisuke.tsuji.735"
 twitter = "https://twitter.com/dim0627"
 github = "https://github.com/dim0627"
-
-[outputs]
-page = [ "HTML", "AMP" ] # if you want AMP enable.
 ```
 
 # Frontmatter example
