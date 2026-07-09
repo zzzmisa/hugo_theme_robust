@@ -5,7 +5,7 @@ description = "Grid based theme for Hugo."
 homepage = "https://github.com/zzzmisa/hugo_theme_robust"
 tags = ["blog"]
 features = ["responsive", "thumbnail", "grid", "syntax highlight", "structured data", "ogp", "X cards"]
-min_version = '0.57.2'
+min_version = '0.146.0'
 
 [author]
 name = "zzzmisa"

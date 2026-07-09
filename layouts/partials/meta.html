@@ -6,7 +6,9 @@
 {{ with .Site.Params.contact }}<meta name="contact" content="{{ . }}">{{ end }}
 {{ hugo.Generator }}
 
-<link rel="apple-touch-icon" href="{{ .Site.BaseURL }}images/logo.png">
+{{ if fileExists "/static/images/logo.png" }}
+<link rel="apple-touch-icon" href="{{ "images/logo.png" | absURL }}">
+{{ end }}
 
 {{ range .AlternativeOutputFormats }}
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title | safeHTML }}">

@@ -1,19 +1,19 @@
 <article class="sn">
 
-  <div class="thumb thumb-{{ .File.UniqueID }}"></div>
+  <div class="thumb" style="background-image: url({{ .Params.thumbnail | default "images/default.jpg" | absURL }});"></div>
 
   <header class="article-header">
     <h1 class="title">{{ .Title }}</h1>
 
     <ul class="facts">
-      <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="{{ .Date.Format "2006-01-02T15:04:05JST" }}">{{ .Date.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>
+      <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>
       {{ if ne .Date .Lastmod }}
-      <li><i class="fas fa-sync" aria-hidden="true"></i><time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05JST" }}">{{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>
+      <li><i class="fas fa-sync" aria-hidden="true"></i><time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">{{ .Lastmod.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>
       {{ end }}
       {{ with .Section }}
-      <li><i class="fas fa-bookmark" aria-hidden="true"></i><a href="{{ $.Site.BaseURL }}{{ . | urlize }}/">{{ . | upper }}</a></li>
+      <li><i class="fas fa-bookmark" aria-hidden="true"></i><a href="{{ printf "%s/" (. | urlize) | absLangURL }}">{{ . | upper }}</a></li>
       {{ end }}
-      {{ if eq (getenv "HUGO_ENV") "DEV" }}
+      {{ if not hugo.IsProduction }}
       <li>{{ .WordCount }} Words</li>
       {{ end }}
       {{ if .Draft }}
@@ -41,11 +41,11 @@
     {{ if isset $params $key }}
     <section class="footer">
       <header>
-        <a href="{{ $.Site.BaseURL }}{{ $key | urlize }}/">{{ $key | upper }}</a>
+        <a href="{{ printf "%s/" ($key | urlize) | absLangURL }}">{{ $key | upper }}</a>
       </header>
       <ul class="terms">
         {{ range (index $params $key) }}
-        <li><a href="{{ $.Site.BaseURL }}{{ $key | urlize }}/{{ . | urlize }}/">{{ . }}</a></li>
+        <li><a href="{{ printf "%s/%s/" ($key | urlize) (. | urlize) | absLangURL }}">{{ . }}</a></li>
         {{ end }}
       </ul>
     </section>

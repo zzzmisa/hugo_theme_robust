@@ -18,27 +18,19 @@
     {{ end }}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" crossorigin="anonymous">
     <style>
-{{ with resources.Get "styles.scss" | toCSS }}
+{{ with resources.Get "styles.scss" | css.Sass }}
   {{ replace .Content `@charset "UTF-8";` "" | safeCSS }}
 {{ end }}
 {{ if .Site.Params.Author }}
-  {{ with resources.Get "author.scss" | toCSS }}
+  {{ with resources.Get "author.scss" | css.Sass }}
     {{ replace .Content `@charset "UTF-8";` "" | safeCSS }}
   {{ end }}
 {{ end }}
 
 .thumb {
-  background-image: url("{{ "images/default.jpg" | absURL }}");
   background-size: cover;
   background-position: center;
 }
-{{ range $p := .Site.RegularPages }}
-  {{ with $p.Params.thumbnail }}
-.thumb-{{ $p.File.UniqueID }} {
-  background-image: url("{{ . | absURL }}");
-}
-  {{ end }}
-{{ end }}
 
 {{ with .Site.Params.fontfamily }} body { font-family: {{ . | safeCSS }}; } {{ end }}
 {{ with .Site.Params.logofontfamily }} .h-logo { font-family: {{ . | safeCSS }}; } {{ end }}
@@ -76,7 +68,7 @@
     {{ end }}
     <header class="l-header">
         <h1 class="logo">
-          <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+          <a href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a>
         </h1>
         {{ with .Site.Params.Description }}
         <span class="description">

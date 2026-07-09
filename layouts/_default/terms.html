@@ -6,11 +6,10 @@
 </header>
 
 <ul class="terms">
-  {{ $data := .Data }}
-  {{ range $key, $value := .Data.Terms }}
+  {{ range .Data.Terms.Alphabetical }}
   <li>
     <h2 class="terms-title">
-      <a href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $key | urlize }}">{{ $key }} ({{ len $value }})</a>
+      <a href="{{ .Page.Permalink }}">{{ .Name }} ({{ .Count }})</a>
     </h2>
   </li>
   {{ end }}
