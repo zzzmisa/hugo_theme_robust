@@ -7,11 +7,11 @@
     {{ end }}
     <div class="author-name">{{ .name }}</div>
     <ul class="author-facts">
-      {{ with .facebook }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a></li>{{ end }}
-      {{ with .twitter }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>{{ end }}
-      {{ with .github }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>{{ end }}
-      {{ with .mail }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank"><i class="fa-solid fa-envelope" aria-hidden="true"></i></a></li>{{ end }}
-      {{ with .homepage }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank"><i class="fa-solid fa-house" aria-hidden="true"></i></a></li>{{ end }}
+      {{ with .facebook }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank">{{ partial "icon.html" "facebook" }}</a></li>{{ end }}
+      {{ with .twitter }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank">{{ partial "icon.html" "x-twitter" }}</a></li>{{ end }}
+      {{ with .github }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank">{{ partial "icon.html" "github" }}</a></li>{{ end }}
+      {{ with .mail }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank">{{ partial "icon.html" "envelope" }}</a></li>{{ end }}
+      {{ with .homepage }}<li><a href="{{ . }}" rel="noopener nofollow" target="_blank">{{ partial "icon.html" "house" }}</a></li>{{ end }}
     </ul>
     <div class="author-description">{{ .description | safeHTML }}</div>
   </div>

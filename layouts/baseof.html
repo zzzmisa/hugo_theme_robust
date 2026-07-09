@@ -14,10 +14,6 @@
     {{ else }}
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
     {{ end }}
-    {{ if .Site.Params.EnableHighlight | default false }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/default.min.css">
-    {{ end }}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css" crossorigin="anonymous">
     <style>
 {{ with resources.Get "styles.scss" | css.Sass }}
   {{ replace .Content `@charset "UTF-8";` "" | safeCSS }}
@@ -86,10 +82,10 @@
         </div>
         <div class="mcol c4">
           <aside class="l-sidebar">
-            {{ partial "author.html" . }}
-            {{ partial "latests.html" . }}
-            {{ partial "categories.html" . }}
-            {{ partial "tags.html" . }}
+            {{ partialCached "author.html" . .Site.Language.Lang }}
+            {{ partialCached "latests.html" . .Site.Language.Lang }}
+            {{ partialCached "categories.html" . .Site.Language.Lang }}
+            {{ partialCached "tags.html" . .Site.Language.Lang }}
           </aside>
         </div>
       </div>
@@ -107,10 +103,6 @@
       </div>
     </footer>
 
-    {{ if .Site.Params.EnableHighlight | default false }}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js" crossorigin="anonymous"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    {{ end }}
   </body>
 </html>
 

@@ -10,7 +10,8 @@ Misa's Robust was modified by zzzmisa based on the original [Robust](https://git
  - 機能修正
    - TwitterアイコンをXに変更
    - Google Analyticsのサポートを廃止し、代わりにGoogle Tag Managerをサポート
-   - Font Awesomeのバージョンをv6.4.2にアップデート
+   - Font Awesomeを CDN 読み込みからインラインSVG（Font Awesome Free 6 のアイコンを埋め込み）に変更し、外部依存を削減
+   - highlight.js のサポートを廃止（Hugo 内蔵の Chroma によるシンタックスハイライトを利用）
    - タグの表示件数を10件から50件に変更
    - 記事の行間を`line-height: 1.5rem`から`line-height: 2rem`に変更
    - 階層リストに入っていたマージンを削除し、`line-height: 2rem`で統一  
@@ -88,8 +89,6 @@ dateformat = "Jan 2, 2006" # Optional
 googlefonts = "https://fonts.googleapis.com/css?family=Lobster|Lato:400,700" # Optional, Include google fonts.
 fontfamily = "Lato,YuGothic,'Hiragino Kaku Gothic Pro',Meiryo,sans-serif" # Optional, Override body font family.
 logofontfamily = "Lobster, cursive" # Optional, Override logo font.
-
-enableHighlight = true # highlight.js option
 
 [params.author]
 thumbnail = "images/author.jpg"

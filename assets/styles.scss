@@ -32,6 +32,14 @@ hr {
   margin: 1rem 0;
 }
 
+svg.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
 p {
   margin: 0;
   line-height: 1rem;
@@ -440,7 +448,7 @@ article.sn > .article-body figcaption {
     margin-right: 1rem;
   }
 
-  i {
+  svg.icon {
     color: #cfd8dc;
     margin-right: .5em;
   }
