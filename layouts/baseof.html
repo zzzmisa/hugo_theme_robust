@@ -5,6 +5,7 @@
     <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
     {{ partial "meta.html" . }}
     {{ block "meta" . }}{{ end }}
+    {{ if .IsHome }}{{ partial "website_json_ld.html" . }}{{ end }}
 
     <link rel="canonical" href="{{ .Permalink }}">
 

@@ -43,7 +43,8 @@ This is the grid based theme for Hugo.
 * Google Analytics
 * Thumbnail
 * Share button
-* Structured data(Article and Breadcrumb)
+* Structured data(BlogPosting, BreadcrumbList and WebSite)
+* robots.txt / llms.txt (optional)
 * Twitter cards
 * OGP
 * Disqus
@@ -62,15 +63,26 @@ $ git clone https://github.com/dim0627/hugo_theme_robust.git
 # `config.toml` example
 
 ```
-baseurl = "https://example.com/"
+baseURL = "https://example.com/"
 title = "SiteTitle"
 theme = "hugo_theme_robust"
+
+enableRobotsTXT = true # Optional, serve robots.txt with a Sitemap line.
+
+# Optional, publish llms.txt for answer engines (AEO).
+[outputFormats.llms]
+mediaType = "text/plain"
+baseName = "llms"
+isPlainText = true
+[outputs]
+home = ["html", "rss", "llms"]
 
 googleAnalytics = "UA-XXXXXXXX-XX" # Optional
 disqusShortname = "XYW"
 
 [params]
 description = "This is site description"
+twittersite = "@yourhandle" # Optional, for twitter:site meta.
 dateformat = "Jan 2, 2006" # Optional
 # Fonts settings.
 googlefonts = "https://fonts.googleapis.com/css?family=Lobster|Lato:400,700" # Optional, Include google fonts.

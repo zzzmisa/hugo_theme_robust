@@ -1,17 +1,26 @@
-<meta name="description" content="{{ .Description | default .Summary }}">
+{{- $desc := .Description | default (.Summary | plainify | htmlUnescape | chomp | truncate 160) -}}
+{{- $image := absURL (.Params.thumbnail | default "images/default.jpg") -}}
+{{- $locales := dict "ja" "ja_JP" "en" "en_US" -}}
+{{- $locale := index $locales .Site.Language.Lang | default .Site.Language.Lang -}}
+<meta name="description" content="{{ $desc }}">
 
 <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ absURL (.Params.thumbnail | default "images/default.png") }}">
+<meta property="og:image" content="{{ $image }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
-<meta property="og:description" content="{{ .Description | default .Summary }}">
-<meta property="og:locale" content="ja_JP">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:locale" content="{{ $locale }}">
+{{- range .Translations }}
+<meta property="og:locale:alternate" content="{{ index $locales .Language.Lang | default .Language.Lang }}">
+{{- end }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="{{ .Site.Title }}">
-<meta name="twitter:url" content="{{ .Permalink }}">
+{{- with .Site.Params.twittersite }}
+<meta name="twitter:site" content="{{ . }}">
+{{- end }}
 <meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}">
-<meta name="twitter:description" content="{{ .Description | default .Summary }}">
-<meta name="twitter:image" content="{{ absURL (.Params.thumbnail | default "images/default.png") }}">
-
+<meta name="twitter:description" content="{{ $desc }}">
+<meta name="twitter:image" content="{{ $image }}">

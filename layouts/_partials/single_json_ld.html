@@ -1,34 +1,22 @@
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "NewsArticle",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id":"{{ .Site.BaseURL }}"
-    },
-    "headline": {{ print .Title "-" .Site.Title | jsonify | safeJS }},
-    "image": {
-      "@type": "ImageObject",
-      "url": "{{ absURL (.Params.thumbnail | default "images/default.png") }}",
-      "height": 800,
-      "width": 800
-    },
-    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05JST" }}",
-    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05JST" }}",
-    "author": {
-      "@type": "Person",
-      "name": {{ .Site.Title | jsonify | safeJS }}
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": {{ .Site.Title | jsonify | safeJS }},
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{{ .Site.BaseURL }}images/logo.png",
-        "width": 600,
-        "height": 60
-      }
-    },
-    "description": "{{ .Description | default .Summary }}"
-  }
-</script>
+{{- $desc := .Description | default (.Summary | plainify | htmlUnescape | chomp | truncate 160) -}}
+{{- $lang := .Site.Language.LanguageCode | default .Site.Language.Lang -}}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "BlogPosting"
+  "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+  "headline" .Title
+  "image" (slice (absURL (.Params.thumbnail | default "images/default.jpg")))
+  "datePublished" (.Date.Format "2006-01-02T15:04:05-07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
+  "inLanguage" $lang
+  "description" $desc
+-}}
+{{- $authorName := .Site.Title -}}
+{{- with .Site.Params.author }}{{ with .name }}{{ $authorName = . }}{{ end }}{{ end -}}
+{{- $schema = merge $schema (dict "author" (dict "@type" "Person" "name" $authorName)) -}}
+{{- $publisher := dict "@type" "Organization" "name" .Site.Title -}}
+{{- if fileExists "/static/images/logo.png" -}}
+  {{- $publisher = merge $publisher (dict "logo" (dict "@type" "ImageObject" "url" (absURL "images/logo.png"))) -}}
+{{- end -}}
+{{- $schema = merge $schema (dict "publisher" $publisher) -}}
+<script type="application/ld+json">{{ $schema | jsonify (dict "indent" "  ") | safeJS }}</script>

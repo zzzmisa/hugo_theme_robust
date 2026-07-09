@@ -14,3 +14,23 @@
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type | html }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title | safeHTML }}">
 {{ end }}
 
+{{ if .IsTranslated }}
+{{ range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.LanguageCode | default .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}
+{{ end }}
+
+{{ if not .IsPage }}
+{{ with .Site.Params.description }}
+<meta name="description" content="{{ . | plainify }}">
+{{ end }}
+<meta property="og:title" content="{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ absURL "images/default.jpg" }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{ with .Site.Params.description }}
+<meta property="og:description" content="{{ . | plainify }}">
+{{ end }}
+{{ end }}
+

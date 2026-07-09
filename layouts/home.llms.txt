@@ -1,0 +1,9 @@
+# {{ .Site.Title }}
+
+{{ with .Site.Params.description }}> {{ . | plainify }}
+{{ end }}
+## Articles
+
+{{ range .Site.RegularPages -}}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . }}{{ end }}
+{{ end }}
