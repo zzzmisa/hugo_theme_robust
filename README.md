@@ -3,18 +3,24 @@
 Misa's Robust was modified by zzzmisa based on the original [Robust](https://github.com/dim0627/hugo_theme_robust) created by [Daisuke Tsuji](http://yet.unresolved.xyz/) and maintained by [Ress](https://github.com/ress997).
 
 ## オリジナルと違う点
+
+変更履歴の詳細は [Releases](https://github.com/zzzmisa/hugo_theme_robust/releases) を参照。
+
  - 機能追加
-   - YouTubeとiframe用のショートコードを追加
+   - iframe用のショートコードを追加
    - authorセクションでメールアイコン、ホームページアイコンを表示できるよう機能追加
    - フッターに任意のコンテンツ（例えば Notice | Privacy Policy）を追加できるよう機能追加
+   - SEO/AEO対応を強化（BlogPosting / BreadcrumbList / WebSite の構造化データ、hreflang、robots.txt / llms.txt、外部リンクの別タブ化）
  - 機能修正
    - TwitterアイコンをXに変更
    - Google Analyticsのサポートを廃止し、代わりにGoogle Tag Managerをサポート
-   - Font Awesomeを CDN 読み込みからインラインSVG（Font Awesome Free 6 のアイコンを埋め込み）に変更し、外部依存を削減
-   - highlight.js のサポートを廃止（Hugo 内蔵の Chroma によるシンタックスハイライトを利用）
+   - Font AwesomeをCDN読み込みからインラインSVGに変更し、外部CDN依存を排除
+   - highlight.jsのサポートを廃止（Hugo内蔵のChromaを利用）
    - タグの表示件数を10件から50件に変更
    - 記事の行間を`line-height: 1.5rem`から`line-height: 2rem`に変更
-   - 階層リストに入っていたマージンを削除し、`line-height: 2rem`で統一  
+   - 階層リストに入っていたマージンを削除し、`line-height: 2rem`で統一
+ - 機能削除
+   - AMP・Disqus対応を削除（動作要件: Hugo Extended 0.146以上）
 
 ↓↓ここからオリジナルのREADME↓↓
 
