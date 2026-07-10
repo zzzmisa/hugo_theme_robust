@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Site.Language.Lang }}">
   <head>
     <meta charset="utf-8">
     <title>{{ block "title" . }}{{ end }}{{ .Site.Title }}</title>
@@ -11,8 +11,6 @@
 
     {{ with .Site.Params.googlefonts }}
     <link href="{{ . }}" rel="stylesheet">
-    {{ else }}
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
     {{ end }}
     <style>
 {{ with resources.Get "styles.scss" | css.Sass }}
@@ -68,7 +66,7 @@
     {{ end }}
     <header class="l-header">
         <h1 class="logo">
-          <a href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a>
+          <a class="h-logo" href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a>
         </h1>
         {{ with .Site.Params.Description }}
         <span class="description">

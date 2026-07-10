@@ -15,7 +15,8 @@ Misa's Robust was modified by zzzmisa based on the original [Robust](https://git
    - TwitterアイコンをXに変更
    - Google Analyticsのサポートを廃止し、代わりにGoogle Tag Managerをサポート
    - Font AwesomeをCDN読み込みからインラインSVGに変更し、外部CDN依存を排除
-   - highlight.jsのサポートを廃止（Hugo内蔵のChromaを利用）
+   - デフォルトフォントをシステムフォントに変更（Google Fontsは `googlefonts` param 設定時のみ読み込み）
+   - highlight.jsのサポートを廃止（Hugo内蔵のChromaを利用。`noClasses = false` でテーマ同梱の github-dark 配色）
    - タグの表示件数を10件から50件に変更
    - 記事の行間を`line-height: 1.5rem`から`line-height: 2rem`に変更
    - 階層リストに入っていたマージンを削除し、`line-height: 2rem`で統一
@@ -84,17 +85,19 @@ isPlainText = true
 [outputs]
 home = ["html", "rss", "llms"]
 
-googleAnalytics = "UA-XXXXXXXX-XX" # Optional
-disqusShortname = "XYW"
+# Optional, class-based syntax highlighting styled by the theme (github-dark).
+[markup.highlight]
+noClasses = false
 
 [params]
 description = "This is site description"
 twittersite = "@yourhandle" # Optional, for twitter:site meta.
 dateformat = "Jan 2, 2006" # Optional
-# Fonts settings.
+googletagmanager = "GTM-XXXXXXX" # Optional, Google Tag Manager container id.
+# Fonts settings. The theme uses system fonts by default.
 googlefonts = "https://fonts.googleapis.com/css?family=Lobster|Lato:400,700" # Optional, Include google fonts.
 fontfamily = "Lato,YuGothic,'Hiragino Kaku Gothic Pro',Meiryo,sans-serif" # Optional, Override body font family.
-logofontfamily = "Lobster, cursive" # Optional, Override logo font.
+logofontfamily = "Lobster, cursive" # Optional, Override logo (and copyright) font.
 
 [params.author]
 thumbnail = "images/author.jpg"

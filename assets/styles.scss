@@ -34,7 +34,7 @@ html {
 
 body {
   color: var(--color-text);
-  font-family: 'Roboto Slab','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',メイリオ,Meiryo,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic Medium', 'Yu Gothic', Meiryo, sans-serif;
   font-feature-settings : "palt";
   font-size: inherit;
   line-height: 1rem;
@@ -406,7 +406,7 @@ article.sn > .article-body {
     }
   }
   code, pre{
-    font-family: Menlo, Consolas, monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: .7rem;
   }
 }
