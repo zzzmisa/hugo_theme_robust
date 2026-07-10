@@ -1,0 +1,2 @@
+<img src="{{ .Destination | safeURL }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- /* keep rendered output free of trailing newline */ -}}
