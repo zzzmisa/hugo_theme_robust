@@ -23,6 +23,9 @@
     {{ replace .Content `@charset "UTF-8";` "" | safeCSS }}
   {{ end }}
 {{ end }}
+{{ with resources.Get "chroma.css" }}
+  {{ .Content | safeCSS }}
+{{ end }}
 
 .thumb {
   background-size: cover;
