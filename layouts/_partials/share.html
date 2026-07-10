@@ -1,12 +1,12 @@
 <aside class="share">
-  <a href="https://b.hatena.ne.jp/add?mode=confirm&url={{ .Permalink }}&title={{ .Title }}" title="はてなブックマーク" class="ht"
+  <a href="https://b.hatena.ne.jp/add?mode=confirm&url={{ .Permalink }}&title={{ .Title }}" title="はてなブックマーク" aria-label="はてなブックマークに追加" class="ht"
     target="_blank" rel="noopener nofollow">B!</a>
-  <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}&tw_p=tweetbutton" title="Xでシェア"
+  <a href="https://twitter.com/intent/tweet?url={{ .Permalink }}&text={{ .Title }}&tw_p=tweetbutton" title="Xでシェア" aria-label="Xでシェア"
     class="tw" target="_blank" rel="noopener nofollow">{{ partial "icon.html" "x-twitter" }}</a>
-  <a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}&t={{ .Title }}" title="Facebookでシェア" class="fb"
+  <a href="https://www.facebook.com/sharer.php?u={{ .Permalink }}&t={{ .Title }}" title="Facebookでシェア" aria-label="Facebookでシェア" class="fb"
     target="_blank" rel="noopener nofollow">{{ partial "icon.html" "facebook" }}</a>
-  <a href="https://getpocket.com/edit?url={{ .Permalink }}&title={{ .Title }}" title="Pocketに保存" class="pk"
+  <a href="https://getpocket.com/edit?url={{ .Permalink }}&title={{ .Title }}" title="Pocketに保存" aria-label="Pocketに保存" class="pk"
     target="_blank" rel="noopener nofollow">{{ partial "icon.html" "get-pocket" }}</a>
-  <a href="https://social-plugins.line.me/lineit/share?url={{ .Permalink }}" title="LINEでシェア" class="ln" target="_blank"
+  <a href="https://social-plugins.line.me/lineit/share?url={{ .Permalink }}" title="LINEでシェア" aria-label="LINEでシェア" class="ln" target="_blank"
     rel="noopener nofollow">{{ partial "icon.html" "line" }}</a>
 </aside>

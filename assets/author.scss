@@ -27,15 +27,16 @@
       display: inline;
 
       a {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         background-color: var(--color-surface-muted);
-        width: 1.75rem;
-        height: 1.75rem;
-        line-height: 1.75rem;
-        text-align: center;
+        width: 40px;
+        height: 40px;
         color: var(--color-text);
         font-size: .8rem;
         border-radius: var(--radius-sm);
+        transition: color .15s ease, background-color .15s ease;
 
         &:hover {
           color: var(--color-text-inverse);
