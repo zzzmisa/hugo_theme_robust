@@ -210,6 +210,12 @@ article.li {
   }
 }
 
+@media (max-width: 768px) {
+  article.li {
+    height: auto;
+  }
+}
+
 article.li > a {
   display: block;
   color: var(--color-text);
